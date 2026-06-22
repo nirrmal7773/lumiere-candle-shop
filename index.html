@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — Luxury Candle Shop</title>
+  <meta name="description" content="Discover handcrafted luxury candles at Lumière. Shop soy wax, beeswax, and botanical candles that fill your space with warmth and elegance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-flame">🕯</span>
+        <span class="logo-text">Lumière</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#collection" class="nav-link">Collection</a></li>
+        <li><a href="#about" class="nav-link">Our Story</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <p class="hero-tag">✦ Handcrafted with love ✦</p>
+      <h1 class="hero-title">
+        Light Your World<br />
+        <em>with Luxury</em>
+      </h1>
+      <p class="hero-subtitle">
+        Discover our curated collection of artisan soy candles,<br />
+        crafted to transform any space into a sanctuary.
+      </p>
+      <div class="hero-cta">
+        <a href="#collection" class="btn-primary">Shop Collection</a>
+        <a href="#about" class="btn-ghost">Our Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat glass-card">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Fragrances</span>
+        </div>
+        <div class="stat glass-card">
+          <span class="stat-num">12K+</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="stat glass-card">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Natural Wax</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="candle-showcase">
+        <div class="showcase-glow"></div>
+        <div class="candle-jar large-jar">
+          <div class="flame-wrap"><div class="flame"><div class="flame-inner"></div></div></div>
+          <div class="jar-body">
+            <div class="jar-label">Velvet Rose</div>
+            <div class="jar-wax"></div>
+          </div>
+        </div>
+        <div class="candle-jar small-jar-left">
+          <div class="flame-wrap sm"><div class="flame sm"><div class="flame-inner"></div></div></div>
+          <div class="jar-body sm">
+            <div class="jar-label sm">Cedar</div>
+          </div>
+        </div>
+        <div class="candle-jar small-jar-right">
+          <div class="flame-wrap sm"><div class="flame sm"><div class="flame-inner"></div></div></div>
+          <div class="jar-body sm">
+            <div class="jar-label sm">Vanilla</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="features-grid">
+      <div class="feature glass-card">
+        <div class="feature-icon">🌿</div>
+        <div>
+          <h3>100% Natural</h3>
+          <p>Pure soy & beeswax blends</p>
+        </div>
+      </div>
+      <div class="feature glass-card">
+        <div class="feature-icon">✋</div>
+        <div>
+          <h3>Hand Poured</h3>
+          <p>Crafted in small batches</p>
+        </div>
+      </div>
+      <div class="feature glass-card">
+        <div class="feature-icon">🚚</div>
+        <div>
+          <h3>Free Shipping</h3>
+          <p>On orders over ₹999</p>
+        </div>
+      </div>
+      <div class="feature glass-card">
+        <div class="feature-icon">♻️</div>
+        <div>
+          <h3>Eco Friendly</h3>
+          <p>Recyclable glass jars</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COLLECTION ===== -->
+  <section class="collection" id="collection">
+    <div class="section-header">
+      <p class="section-tag">✦ Our Collection ✦</p>
+      <h2 class="section-title">Signature <em>Fragrances</em></h2>
+      <p class="section-subtitle">Each candle is a journey — close your eyes and let the scent take you there.</p>
+    </div>
+
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="floral">Floral</button>
+      <button class="filter-tab" data-filter="woody">Woody</button>
+      <button class="filter-tab" data-filter="fresh">Fresh</button>
+      <button class="filter-tab" data-filter="warm">Warm & Spice</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Products are rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ===== BESTSELLER BANNER ===== -->
+  <section class="bestseller-banner">
+    <div class="banner-inner glass-card">
+      <div class="banner-text">
+        <p class="banner-tag">⭐ Best Seller of the Season</p>
+        <h2>"Midnight Amber"</h2>
+        <p class="banner-desc">Our most loved fragrance — a rich blend of amber, sandalwood, and a hint of vanilla that lingers long after the candle goes out.</p>
+        <div class="banner-price">
+          <span class="price-old">₹1,499</span>
+          <span class="price-new">₹1,199</span>
+          <span class="price-badge">20% OFF</span>
+        </div>
+        <button class="btn-primary" onclick="addToCartById('p5')">Add to Cart</button>
+      </div>
+      <div class="banner-candle">
+        <div class="banner-candle-wrap">
+          <div class="flame-wrap banner-flame"><div class="flame"><div class="flame-inner"></div></div></div>
+          <div class="banner-jar">
+            <div class="banner-jar-label">Midnight Amber</div>
+            <div class="banner-wax-fill"></div>
+          </div>
+        </div>
+        <div class="banner-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-glass glass-card">
+          <div class="about-icon-row">
+            <span class="about-icon">🕯</span>
+            <span class="about-icon">🌹</span>
+            <span class="about-icon">🌿</span>
+          </div>
+          <h3>Our Promise</h3>
+          <ul class="about-list">
+            <li>✓ No paraffin wax — ever</li>
+            <li>✓ Phthalate-free fragrances</li>
+            <li>✓ Cotton lead-free wicks</li>
+            <li>✓ Cruelty-free & vegan</li>
+            <li>✓ Reusable glass jars</li>
+          </ul>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-tag">✦ Our Story ✦</p>
+        <h2 class="section-title">Born from a <em>Passion</em> for Scent</h2>
+        <p>Lumière began in a small kitchen in 2019, where our founder Priya poured her first candle for a friend's birthday gift. The response was overwhelming — everyone wanted one.</p>
+        <p>Today, we blend over 50 unique fragrances, sourced from sustainable farms around the world. Every candle is hand-poured in small batches to ensure quality and consistency.</p>
+        <p>We believe that scent is one of the most powerful triggers of memory and emotion. Our mission is to help you fill your space with moments worth remembering.</p>
+        <a href="#collection" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Explore Our Candles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-header">
+      <p class="section-tag">✦ Customer Reviews ✦</p>
+      <h2 class="section-title">What Our <em>Customers</em> Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial glass-card">
+        <div class="stars">★★★★★</div>
+        <p>"The Velvet Rose candle is absolutely divine. The scent fills the entire room and lasts for hours. I've already ordered three more!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">A</div>
+          <div>
+            <strong>Anjali Sharma</strong>
+            <span>Mumbai</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial glass-card featured-review">
+        <div class="stars">★★★★★</div>
+        <p>"I gifted the luxury bundle to my mom and she was moved to tears. The packaging is stunning, and the candles smell like pure heaven. Lumière has a customer for life."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">R</div>
+          <div>
+            <strong>Rohit Verma</strong>
+            <span>Delhi</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial glass-card">
+        <div class="stars">★★★★★</div>
+        <p>"Midnight Amber is my new evening ritual. I light it after dinner and the whole house smells incredible. Worth every rupee!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">S</div>
+          <div>
+            <strong>Sneha Pillai</strong>
+            <span>Bangalore</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="newsletter-inner glass-card">
+      <p class="section-tag">✦ Stay in the Loop ✦</p>
+      <h2>Get <em>10% Off</em> Your First Order</h2>
+      <p>Subscribe to our newsletter for exclusive offers, new launches, and candle care tips.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="emailInput" placeholder="Your email address" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-note" id="newsletterMsg"></p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <p class="section-tag">✦ Get in Touch ✦</p>
+      <h2 class="section-title">We'd Love to <em>Hear from You</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info glass-card">
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>Studio</strong>
+            <p>42 Candlewick Lane, Jaipur, Rajasthan 302001</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <div>
+            <strong>Email</strong>
+            <p>hello@lumiere-candles.in</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">⏰</span>
+          <div>
+            <strong>Hours</strong>
+            <p>Mon – Sat: 10am – 6pm</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form glass-card" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cName">Name</label>
+            <input type="text" id="cName" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="cEmail">Email</label>
+            <input type="email" id="cEmail" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cSubject">Subject</label>
+          <input type="text" id="cSubject" placeholder="How can we help?" />
+        </div>
+        <div class="form-group">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" rows="4" placeholder="Tell us more..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+        <p class="form-success" id="contactSuccess"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-flame">🕯</span><span class="logo-text">Lumière</span></a>
+        <p>Handcrafted luxury candles made with love and the finest natural ingredients.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.76 1.22-5.15 1.22-5.15s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .89-.57 2.23-.87 3.47-.25 1.04.52 1.88 1.53 1.88 1.84 0 3.08-2.37 3.08-5.16 0-2.13-1.44-3.62-3.5-3.62-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23-.06.26-.2.83-.23.94-.04.15-.13.18-.3.11-1.12-.52-1.82-2.17-1.82-3.49 0-2.84 2.06-5.44 5.94-5.44 3.12 0 5.54 2.22 5.54 5.19 0 3.09-1.95 5.58-4.66 5.58-.91 0-1.77-.47-2.06-1.03l-.56 2.1c-.2.78-.75 1.75-1.12 2.34.85.26 1.75.4 2.68.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#collection">All Candles</a></li>
+          <li><a href="#collection">New Arrivals</a></li>
+          <li><a href="#collection">Best Sellers</a></li>
+          <li><a href="#collection">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Candle Care</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Lumière. All rights reserved. Made with 🕯 in India.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" id="closeCart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <span>🕯</span>
+        <p>Your cart is empty</p>
+        <a href="#collection" class="btn-primary" style="font-size:0.85rem;padding:0.6rem 1.4rem;">Shop Now</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn-primary" style="width:100%">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="product-modal" id="productModal">
+    <button class="close-modal" id="closeModal">✕</button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
