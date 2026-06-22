@@ -125,6 +125,23 @@ const contactForm = document.getElementById('contactForm');
 const contactSuccess = document.getElementById('contactSuccess');
 const toast = document.getElementById('toast');
 
+// Search elements
+const searchBtn = document.getElementById('searchBtn');
+const searchOverlay = document.getElementById('searchOverlay');
+const closeSearch = document.getElementById('closeSearch');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+// Checkout elements
+const checkoutBtn = document.getElementById('checkoutBtn');
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutModalOverlay = document.getElementById('checkoutModalOverlay');
+const closeCheckout = document.getElementById('closeCheckout');
+const checkoutForm = document.getElementById('checkoutForm');
+const checkoutSummaryItems = document.getElementById('checkoutSummaryItems');
+const checkoutSubtotal = document.getElementById('checkoutSubtotal');
+const checkoutTotal = document.getElementById('checkoutTotal');
+
 /* ==========================================
    APP INITIALIZATION & INITIAL RENDER
    ========================================== */
@@ -204,6 +221,112 @@ function setupEventListeners() {
     contactSuccess.textContent = "Message sent successfully! We will get back to you shortly.";
     contactForm.reset();
     setTimeout(() => { contactSuccess.textContent = ""; }, 5000);
+  });
+
+  // Search Toggle
+  searchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('active');
+    searchInput.focus();
+  });
+
+  const closeSearchFunc = () => {
+    searchOverlay.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  };
+
+  closeSearch.addEventListener('click', closeSearchFunc);
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) closeSearchFunc();
+  });
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim().toLowerCase();
+    searchResults.innerHTML = '';
+    
+    if (!query) return;
+    
+    const matches = products.filter(p => 
+      p.name.toLowerCase().includes(query) || 
+      p.category.toLowerCase().includes(query) ||
+      p.scentNotes.toLowerCase().includes(query)
+    );
+    
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:1rem;">No matching fragrance found.</div>`;
+      return;
+    }
+    
+    matches.forEach(product => {
+      const item = document.createElement('div');
+      item.className = 'search-result-item';
+      item.innerHTML = `
+        <div class="item-candle-icon">🕯</div>
+        <div class="search-result-info">
+          <h4>${product.name}</h4>
+          <p>${product.scentNotes}</p>
+        </div>
+        <div class="search-result-price">₹${product.price}</div>
+      `;
+      item.addEventListener('click', () => {
+        closeSearchFunc();
+        showProductDetails(product.id);
+      });
+      searchResults.appendChild(item);
+    });
+  });
+
+  // Checkout Modal Trigger
+  checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    cartSidebar.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    checkoutModal.classList.add('active');
+    checkoutModalOverlay.classList.add('active');
+    renderCheckoutSummary();
+  });
+
+  const closeCheckoutFunc = () => {
+    checkoutModal.classList.remove('active');
+    checkoutModalOverlay.classList.remove('active');
+    const inner = checkoutModal.querySelector('.checkout-modal-inner');
+    if (inner.classList.contains('success-mode')) {
+      location.reload();
+    }
+  };
+
+  closeCheckout.addEventListener('click', closeCheckoutFunc);
+  checkoutModalOverlay.addEventListener('click', closeCheckoutFunc);
+
+  checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('checkoutName').value.trim();
+    const email = document.getElementById('checkoutEmail').value.trim();
+    const phone = document.getElementById('checkoutPhone').value.trim();
+    const address = document.getElementById('checkoutAddress').value.trim();
+    const orderId = 'LUM-' + Math.floor(100000 + Math.random() * 900000);
+    const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    
+    const modalInnerContent = checkoutModal.querySelector('.checkout-modal-inner');
+    modalInnerContent.classList.add('success-mode');
+    modalInnerContent.innerHTML = `
+      <div class="checkout-success-view">
+        <div class="success-icon">✨🕯️✨</div>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for choosing Lumière, <strong>${name}</strong>. Your space will soon be filled with handcrafted luxury.</p>
+        <div class="glass-card" style="padding: 1.5rem; margin: 1rem 0; width: 100%; max-width: 450px; text-align: left;">
+          <p style="margin-bottom: 0.5rem;"><strong>Order ID:</strong> ${orderId}</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Total Amount:</strong> ₹${total.toLocaleString('en-IN')} (Cash/UPI on Delivery)</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Deliver to:</strong> ${address}</p>
+          <p style="margin-bottom: 0;"><strong>Notification sent to:</strong> ${email} / ${phone}</p>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">A confirmation email with shipping details and tracking has been sent to you.</p>
+        <button class="btn-primary" onclick="location.reload()" style="margin-top: 1.5rem; width: auto; padding: 0.8rem 2.5rem;">Continue Shopping</button>
+      </div>
+    `;
+    cart = [];
+    saveCartToLocalStorage();
+    updateCartUI();
   });
 }
 
@@ -454,4 +577,31 @@ function highlightNavLink() {
       }
     }
   });
+}
+
+/* ==========================================
+   RENDER CHECKOUT ORDER SUMMARY
+   ========================================== */
+function renderCheckoutSummary() {
+  checkoutSummaryItems.innerHTML = '';
+  let subtotal = 0;
+  
+  cart.forEach(item => {
+    const totalItemPrice = item.price * item.qty;
+    subtotal += totalItemPrice;
+    
+    const div = document.createElement('div');
+    div.className = 'summary-item';
+    div.innerHTML = `
+      <div class="item-info">
+        <span>${item.name}</span>
+        <span class="item-qty">Qty: ${item.qty}</span>
+      </div>
+      <span>₹${totalItemPrice.toLocaleString('en-IN')}</span>
+    `;
+    checkoutSummaryItems.appendChild(div);
+  });
+  
+  checkoutSubtotal.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+  checkoutTotal.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
 }
